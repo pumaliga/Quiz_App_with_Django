@@ -33,9 +33,8 @@ class QuizListView(ListView):
 
 
 class QuizCreateView(CreateView):
-    model = Quiz
     form_class = QuizForm
-    success_url = '/quiz_create/'
+    success_url = '/'
     template_name = 'quiz_create.html'
 
 

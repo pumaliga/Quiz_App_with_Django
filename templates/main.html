@@ -61,6 +61,9 @@
         <form method="get" action="{% url 'question_create' %}">
             <input type="submit" value="Create question">
         </form>
+        <form method="get" action="{% url 'answers' %}">
+            <input type="submit" value="Create answers">
+        </form>
     {% endif %}
     {% if request.user.is_authenticated %}
         <form method="get" action="{% url 'logout' %}">

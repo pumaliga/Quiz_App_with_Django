@@ -2,9 +2,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 
-from .forms import RegisterForm, QuizForm, QuestionForm
+from .forms import RegisterForm, QuizForm, QuestionForm, AnswersForm
 from .models import Quiz, Question, Answer, Result
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.http import JsonResponse
 
 
@@ -45,9 +45,21 @@ class QuestionCreateView(CreateView):
     template_name = 'question_create.html'
 
 
-def quiz_view(request, pk):
-    quiz = Quiz.objects.get(pk=pk)
-    return render(request, 'quiz.html', {'obj': quiz})
+class AnswersCreateView(CreateView):
+    model = Answer
+    form_class = AnswersForm
+    success_url = '/answers/'
+    template_name = 'answers.html'
+
+
+class QuizDetailView(DetailView):
+    # pk_url_kwarg = 'pk'
+    model = Quiz
+    template_name = 'quiz.html'
+
+    def quiz_view(self, pk):
+        quiz = Quiz.objects.get(pk=pk)
+        return render(self, 'quiz.html', {'obj': quiz})
 
 
 def quiz_data_view(request, pk):

@@ -53,7 +53,7 @@ class AnswersCreateView(CreateView):
 
 
 class QuizDetailView(DetailView):
-    # pk_url_kwarg = 'pk'
+    pk_url_kwarg = 'pk'
     model = Quiz
     template_name = 'quiz.html'
 

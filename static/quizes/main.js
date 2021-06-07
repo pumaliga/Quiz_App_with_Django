@@ -26,6 +26,6 @@ modalBtns.forEach(modalBtn=> modalBtn.addEventListener('click', ()=>{
     `
 
     startBtn.addEventListener('click', ()=>{
-        window.location.href = url + pk
+        window.location.href = url + pk + '/quiz/'
     })
 }))

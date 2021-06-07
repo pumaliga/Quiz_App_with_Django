@@ -2,7 +2,6 @@ from django.urls import path
 from .views import QuizListView, QuizDetailView, quiz_data_view, save_quiz_view, Register, Login, Logout, QuizCreateView, \
     QuestionCreateView, AnswersCreateView
 
-# quiz_view
 urlpatterns = [
     path('', QuizListView.as_view(), name='base'),
     path("register/", Register.as_view(), name="register"),

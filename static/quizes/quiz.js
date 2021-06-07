@@ -49,10 +49,11 @@ const activateTimer = (time) => {
 
 $.ajax({
     type: 'GET',
-    url: `${url}data`,
+    url: `${url}`,
+    // data: data,
     success: function(response){
         const data = response.data
-        data.forEach(el => {
+        forEach(el => {
             for (const [question, answers] of Object.entries(el)){
                 quizBox.innerHTML += `
                     <hr>
